@@ -2,7 +2,7 @@
 
 Skill para revisar prosa em português brasileiro, preservar a voz do autor e criar variações de escrita conforme o gênero e o leitor.
 
-A versão 1.3.1 parte da [Humanizer 3.1.0, de Siqi Chen](https://github.com/blader/humanizer), e incorpora 23 referências de redação, linguagem simples, literatura e estudos do texto. A adaptação é mantida por [Geovani Ariel](https://github.com/geovani-ariel).
+A versão 1.4.0 parte da [Humanizer 3.1.0, de Siqi Chen](https://github.com/blader/humanizer), e incorpora 23 referências de redação, linguagem simples, literatura e estudos do texto. A adaptação é mantida por [Geovani Ariel](https://github.com/geovani-ariel).
 
 ## O que ela faz
 
@@ -20,17 +20,65 @@ A revisão remove a voz do modelo em “até minha última atualização” e co
 
 Quando a expressão se refere a uma atualização feita pelo autor humano, ou aparece em citação literal, ela mantém sua função. Os [casos e resultados da correção](tests/atualizacao/README.md) documentam essa distinção.
 
-## Instalação
+## Instalação por npx skills
 
-Clone este repositório:
+Requer Node.js compatível com a versão do CLI instalada. A versão 1.7.4, usada na verificação deste repositório, exige Node.js 22.20 ou posterior.
+
+No projeto em que deseja usar a skill:
 
 ```sh
-git clone https://github.com/geovani-ariel/humanizer-pt-br.git
+npx skills add geovani-ariel/humanizer-pt-br --skill humanizer-pt-br
 ```
 
-Coloque a pasta `humanizer-pt-br` no diretório de skills aceito pelo seu agente. Mantenha `SKILL.md` e a pasta `references` juntos: as instruções apontam para os arquivos de referência por caminhos relativos.
+O CLI permite escolher os agentes. Para instalar somente para Codex no projeto:
 
-Se o agente permitir indicar uma skill por arquivo, você também pode apontar diretamente para `humanizer-pt-br/SKILL.md`.
+```sh
+npx skills add geovani-ariel/humanizer-pt-br --skill humanizer-pt-br --agent codex
+```
+
+Para instalação global, disponível em outros projetos:
+
+```sh
+npx skills add geovani-ariel/humanizer-pt-br --skill humanizer-pt-br -g
+```
+
+Para listar a skill sem instalá-la:
+
+```sh
+npx skills add geovani-ariel/humanizer-pt-br --list
+```
+
+A descoberta usa `SKILL.md` na raiz. As referências e o script de atualização acompanham a pasta instalada. Como alternativa manual, clone o repositório e coloque a pasta no diretório de skills do seu agente, mantendo os arquivos juntos.
+
+## Aviso e instalação de atualizações
+
+Quando o agente dispõe de execução local, rede permitida e canal de comentário separado, a skill faz uma checagem na primeira utilização de cada chat. O script compara `metadata.version` local com a versão estável publicada no GitHub; só avisa quando encontra uma versão maior. Usa cache de 24 horas, evita repetir um aviso já registrado para a mesma versão e não reinstala arquivos.
+
+O aviso aparece separado do texto solicitado. Em interfaces sem canal de comentário, a checagem automática é adiada. Falta de rede, cache sem permissão ou erro de consulta não interrompem a revisão e não são apresentados como confirmação de que a versão está atualizada.
+
+Para conferir manualmente, a partir da pasta da skill:
+
+```sh
+node scripts/check-update.mjs --force
+```
+
+O resultado é JSON com `status`, `localVersion`, `latestVersion` e `notify`. O script usa apenas módulos nativos do Node.js e consulta uma URL pública fixa do repositório; não envia textos, credenciais ou arquivos de trabalho. A versão recebida é tratada como dado, sem executar conteúdo remoto. O cache padrão fica em `~/.cache/humanizer-pt-br/update.json`, respeitando `XDG_CACHE_HOME`. Para escolher outro diretório, use `HUMANIZER_PT_BR_CACHE_DIR`.
+
+Para desativar, configure `HUMANIZER_PT_BR_UPDATE_CHECK=0` no ambiente do agente. A checagem compara apenas versões estáveis no formato `major.minor.patch` em `metadata.version`; alterações sem aumento de versão não geram aviso. Ela acompanha `main`, portanto instalações deliberadamente fixadas em outra referência devem desativar o aviso se não quiserem acompanhar essa linha.
+
+Depois de decidir atualizar, use o comando correspondente à instalação:
+
+```sh
+# Instalação no projeto
+npx skills update humanizer-pt-br -p
+
+# Instalação global
+npx skills update humanizer-pt-br -g
+```
+
+O aviso não executa esses comandos. Quem instalou manualmente pode reinstalar usando `npx skills add` ou atualizar seu clone.
+
+A descoberta e os comandos foram conferidos na [referência oficial do CLI](https://github.com/vercel-labs/skills/blob/main/docs/commands.md) e no código do pacote `skills@1.7.4`. Nesse pacote, `check` e `update` usam o mesmo fluxo; por isso, o aviso não usa `npx skills check` como operação só de leitura. O comportamento foi verificado no [encaminhamento de comandos](https://github.com/vercel-labs/skills/blob/main/src/cli.ts) e no [fluxo de atualização](https://github.com/vercel-labs/skills/blob/main/src/update.ts), apesar de a documentação consultada descrever `check` de outra maneira.
 
 ## Comportamento padrão
 
@@ -76,6 +124,8 @@ Ao pedir criação factual, forneça os dados disponíveis. Ao pedir ficção, i
 | [Repertório de escrita](references/repertorio-de-escrita.md) | Escolhas para criar textos ou variar a voz e a composição. |
 | [Casos históricos](references/casos-de-revisao.md) | Registros das versões 1.1.0 e 1.2.0. |
 | [Avaliação 1.3.0](tests/README.md) | Pedidos neutros, critérios, controle e saídas completas. |
+| [Verificador de atualização](scripts/check-update.mjs) | Consulta de versão, cache e aviso sem reinstalação. |
+| [Testes do verificador](tests/check_update.test.mjs) | Casos de atualização, cache, indisponibilidade e desativação. |
 | [LICENSE](LICENSE) | Licença MIT e avisos de autoria. |
 
 ## Validação e limites
@@ -86,6 +136,7 @@ Para conferir a integridade do pacote, execute:
 
 ```sh
 python3 tests/check_package.py
+node --test tests/check_update.test.mjs
 ```
 
 Essa verificação mecânica não julga a qualidade dos textos. Não houve pesquisa com leitores nem medição de preferência estética. Algumas referências têm acesso parcial, registrado na fundamentação. Os testes com modelos não comprovam superioridade literária.

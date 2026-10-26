@@ -7,13 +7,21 @@ description: >-
   partir de um briefing. Não é uma ferramenta de detecção de autoria por IA.
 license: MIT
 metadata:
-  version: "1.3.1"
+  version: "1.4.0"
   adapted_from: "humanizer 3.1.0"
 ---
 
 # Humanizer em português brasileiro
 
 Revise o texto preservando conteúdo e voz. Faça a menor mudança que resolva um problema concreto de clareza, redundância ou adequação ao pedido. Um texto já adequado pode ser devolvido intacto. Em criação ou variação, desenvolva o briefing conforme gênero, leitor e intenção.
+
+## Aviso de atualização
+
+Na primeira utilização desta skill em cada chat, se houver execução local, acesso à rede permitido e canal de comentário separado da entrega, execute `node scripts/check-update.mjs` a partir da pasta desta skill. Resolva o caminho em relação a este `SKILL.md`, não ao projeto ou texto em edição. O script consulta somente a versão publicada, usa cache de 24 horas e não instala atualizações.
+
+Se o JSON retornado tiver `notify: true`, avise brevemente no canal de comentário: versão disponível, versão local e `npx skills update humanizer-pt-br`. Mantenha o aviso fora do texto final, arquivo, JSON ou outro artefato pedido. `notify: false`, indisponibilidade, bloqueio de permissão e desativação não geram aviso automático nem interrompem a tarefa. Sem canal separado ou execução permitida, adie a checagem automática; não invente uma versão ou resultado. Não peça elevação de permissões só para essa consulta.
+
+`HUMANIZER_PT_BR_UPDATE_CHECK=0` desativa a consulta. Se o usuário pedir uma verificação manual, use `node scripts/check-update.mjs --force`; nesse contexto, informe indisponibilidade quando ocorrer. Atualizar ou reinstalar exige pedido ou autorização do usuário. Não use `npx skills check` como consulta automática: no CLI 1.7.4 verificado ele compartilha o fluxo de atualização. Consulte [instalação e atualizações](README.md) para comandos e limites.
 
 ## Escolha a tarefa
 
