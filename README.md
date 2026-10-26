@@ -2,7 +2,7 @@
 
 Skill para revisar prosa em português brasileiro, preservar a voz do autor e criar variações de escrita conforme o gênero e o leitor.
 
-A versão 1.3.0 parte da [Humanizer 3.1.0, de Siqi Chen](https://github.com/blader/humanizer), e incorpora 23 referências de redação, linguagem simples, literatura e estudos do texto. A adaptação é mantida por [Geovani Ariel](https://github.com/geovani-ariel).
+A versão 1.3.1 parte da [Humanizer 3.1.0, de Siqi Chen](https://github.com/blader/humanizer), e incorpora 23 referências de redação, linguagem simples, literatura e estudos do texto. A adaptação é mantida por [Geovani Ariel](https://github.com/geovani-ariel).
 
 ## O que ela faz
 
@@ -13,6 +13,12 @@ A versão 1.3.0 parte da [Humanizer 3.1.0, de Siqi Chen](https://github.com/blad
 - Distingue revisão, variação de voz e criação a partir de um briefing.
 
 A skill não determina se um texto foi escrito por IA. As listas de expressões são heurísticas editoriais, sem poder diagnóstico demonstrado. A literatura amplia as possibilidades de escrita; não define um estilo único a ser aplicado a todos os textos.
+
+## Correção 1.3.1
+
+A revisão remove a voz do modelo em “até minha última atualização” e conserva o conteúdo introduzido, incluindo hipóteses, datas de referência e ressalvas. Um limite datado continua com seu alcance de “até”. Informação antiga não vira confirmação atual.
+
+Quando a expressão se refere a uma atualização feita pelo autor humano, ou aparece em citação literal, ela mantém sua função. Os [casos e resultados da correção](tests/atualizacao/README.md) documentam essa distinção.
 
 ## Instalação
 

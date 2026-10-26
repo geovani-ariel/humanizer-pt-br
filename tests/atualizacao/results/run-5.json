@@ -1,0 +1,10 @@
+{
+  "misto": "Segundo analistas, a mudança reduziu o custo em 11%. A investigação ainda está em andamento. Até então, havia poucos registros sobre a criação do projeto; provavelmente surgiu de uma iniciativa familiar.",
+  "data": "Até março de 2023, o cadastro continha 42 entidades. O relatório não permitia distinguir as entidades ativas das inativas.",
+  "explicito": "O boletim de 2022 informa 58 atendimentos. O número pode conter duplicidades.",
+  "autora": "Até minha última atualização do inventário, em 8 de junho, eu tinha identificado nove caixas. Ainda faltavam duas salas.",
+  "citacao": "A frase “até minha última atualização” foi usada no experimento. O arquivo `ate-minha-ultima-atualizacao.txt` permanece em https://example.com/atualizacao?ano=2023.",
+  "ressalva": "Os dados podem estar desatualizados. O estudo sugere uma redução no prazo, mas não demonstra causalidade. Em julho de 2021, eram oito unidades.",
+  "presente": "À época das informações disponíveis, o atendimento era presencial e a taxa era de R$ 25. Não tenho confirmação de que essas condições continuam válidas.",
+  "json": "{\"texto\":\"Até 2020, havia seis registros; a autoria provavelmente era coletiva.\",\"comando\":\"git diff --stat\",\"fonte\":\"https://example.com/a-b?ano=2020\"}"
+}

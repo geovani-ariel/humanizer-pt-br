@@ -1,5 +1,7 @@
 # Avaliação da versão 1.3.0
 
+A correção 1.3.1 tem [casos e resultados próprios](atualizacao/README.md); este arquivo conserva o registro da 1.3.0.
+
 ## Protocolo
 
 Use os pedidos de `cases.json` sem acrescentar dicas sobre o resultado esperado. Para cada execução, forneça o pedido, o texto e as amostras, quando existirem. Cada pedido deve ser tratado como uma tarefa de edição própria. Em cada repetição do microteste, os três pedidos compartilham o contexto de um agente; as cinco repetições e as condições usam agentes separados.

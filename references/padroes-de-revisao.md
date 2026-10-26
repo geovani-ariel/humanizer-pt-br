@@ -261,6 +261,18 @@ Preserve cumprimentos e despedidas próprios de cartas, e-mails e mensagens. Uma
 
 Remova resíduos de elaboração pelo modelo quando não pertencerem ao texto de destino. Preserve datas de referência, hipóteses atribuídas, recortes temporais e limites das fontes que mudem a interpretação. Não transforme uma hipótese do autor em certeza nem a descarte silenciosamente por falta de fonte.
 
+Em “até minha última atualização”, distinga a voz do modelo do marco temporal. Quando for resíduo do modelo, elimine somente a autorreferência. Conserve datas explícitas e o alcance de “até”, além das alegações e incertezas seguintes. Sem data explícita, não invente um marco nem transforme informação limitada ao passado em afirmação atual. Se necessário, reformule como informação relatada à época. A ausência de confirmação atual continua sendo uma ressalva válida.
+
+Retire também comentários sobre capacidades do modelo que pertencem à mesma moldura, como “Como modelo de linguagem, não tenho acesso a informações atualizadas”. Preserve ressalvas sobre os dados e fontes, como “O número pode conter duplicidades” ou “Os dados podem estar desatualizados”. Essas ressalvas têm conteúdo distinto do aviso sobre o modelo.
+
+Preserve quem não conseguiu confirmar. “Não tenho confirmação” pode virar uma limitação das informações apresentadas, mas não uma afirmação geral de que nenhuma confirmação existe. Em voz humana, a primeira pessoa pode permanecer.
+
+Antes: “Até minha última atualização, em fevereiro de 2022, o catálogo registrava 17 coleções.”
+
+Depois: “Até fevereiro de 2022, o catálogo registrava 17 coleções.”
+
+Preserve: “Até minha última atualização do inventário, eu tinha examinado três estantes”, quando quem fala é a pessoa responsável pelo inventário. Preserve também a expressão dentro de citação literal ou como objeto de análise. Essas construções não são resíduos de chatbot por si sós.
+
 Antes: “Aqui está a versão revisada: o relatório não informa a data de fundação.”
 
 Depois: “O relatório não informa a data de fundação.”
