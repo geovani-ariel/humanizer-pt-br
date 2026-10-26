@@ -1,6 +1,6 @@
-# Casos de revisão
+# Casos e registros históricos de revisão
 
-Use estes casos para conferir mudanças na skill. São exemplos editoriais, não um conjunto de dados para detectar IA nem um teste com leitores reais.
+Estes registros documentam as versões 1.1.0 e 1.2.0. Para avaliar a 1.3.0, use o [protocolo atual](../tests/README.md): ele substitui a antiga entrega em três etapas e qualquer critério que permitisse retirar alegações por ausência de fonte. Use os casos históricos como material complementar. São exemplos editoriais, não um conjunto de dados para detectar IA nem um teste com leitores reais.
 
 Peça a um avaliador que leia `../SKILL.md`, revise cada entrada e entregue somente os textos finais. Depois, compare o resultado com os critérios. A redação pode variar; o critério é preservar sentido e editar apenas quando houver motivo. Não trate pontuação equivalente como falha automática.
 

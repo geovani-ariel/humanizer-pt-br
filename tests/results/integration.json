@@ -1,0 +1,10 @@
+{
+  "hipotese": "Há poucos registros da infância da artista. A autora do ensaio sugere que ela possa ter estudado em casa.",
+  "condicao": "Se a gerente autorizar, publique o relatório e envie o link. Sem autorização, salve o rascunho. A análise poderia levar dois dias.",
+  "protegidos": "O sistema permite exportar CSV. Use `git diff --stat` para conferir o resumo. Consulte https://example.com/a-b?x=1. A mensagem é \"ENOENT: file not found\".",
+  "voz": "O plantão passa para quinta-feira, às 16h. Seguimos na sala 8. Se o horário complicar seu dia, fale comigo.",
+  "contraste": "Não era raiva. Era o cansaço de ter voltado à mesma porta, com a mesma chave, e ainda precisar bater.",
+  "criacao": "Aviso\n\nA escola de música atende das 14h às 20h e fecha às segundas-feiras.\n\nCena ficcional\n\nÀs 19h55, Lia fechou o estojo do violino. O professor já estava junto à porta quando ela pediu para tentar mais uma vez.\n\nEle olhou o relógio e voltou para a cadeira. Lia abriu o estojo, devagar, como se assim ganhasse tempo.",
+  "comentada": "A equipe realizou o cadastro ontem.\n\nSubstituí “realizou a realização do cadastro” por “realizou o cadastro” para eliminar a redundância. Mantive quem fez o cadastro e quando.",
+  "json": "{\"texto\":\"A medida poderia ter algum efeito.\",\"comando\":\"git diff --stat\",\"fonte\":\"https://example.com/a-b?x=1\"}"
+}

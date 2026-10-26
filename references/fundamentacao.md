@@ -4,6 +4,8 @@ Pesquisa consultada em 25 de outubro de 2026. Aplica-se à versão 1.1.0.
 
 A versão 1.2.0 mantém esta base de treze fontes e acrescenta dez referências em [literatura e estilo](literatura-e-estilo.md), com um [repertório de escrita](repertorio-de-escrita.md). O complemento amplia a criação de voz e a avaliação das funções expressivas, sem transformar os manuais institucionais em normas de escrita literária.
 
+Na versão 1.3.0, os padrões foram movidos para o [catálogo de revisão](padroes-de-revisao.md). A orientação de preservação foi corrigida: revisão de estilo mantém alegações e atribuições fornecidas, mesmo sem fonte enviada, e não implica checagem factual. As fontes desta base não foram pesquisadas novamente nessa atualização.
+
 ## O que esta base permite afirmar
 
 A base brasileira fundamenta decisões de redação, revisão, ortografia e adequação ao leitor. Ela também permite corrigir regras importadas que restringiam recursos válidos do português. Não demonstra que as 26 construções sejam características exclusivas ou frequentes de textos gerados por IA em português brasileiro.

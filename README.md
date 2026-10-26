@@ -2,7 +2,7 @@
 
 Skill para revisar prosa em português brasileiro, preservar a voz do autor e criar variações de escrita conforme o gênero e o leitor.
 
-A versão 1.2.0 parte da [Humanizer 3.1.0, de Siqi Chen](https://github.com/blader/humanizer), e incorpora 23 referências de redação, linguagem simples, literatura e estudos do texto. A adaptação é mantida por [Geovani Ariel](https://github.com/geovani-ariel).
+A versão 1.3.0 parte da [Humanizer 3.1.0, de Siqi Chen](https://github.com/blader/humanizer), e incorpora 23 referências de redação, linguagem simples, literatura e estudos do texto. A adaptação é mantida por [Geovani Ariel](https://github.com/geovani-ariel).
 
 ## O que ela faz
 
@@ -25,6 +25,14 @@ git clone https://github.com/geovani-ariel/humanizer-pt-br.git
 Coloque a pasta `humanizer-pt-br` no diretório de skills aceito pelo seu agente. Mantenha `SKILL.md` e a pasta `references` juntos: as instruções apontam para os arquivos de referência por caminhos relativos.
 
 Se o agente permitir indicar uma skill por arquivo, você também pode apontar diretamente para `humanizer-pt-br/SKILL.md`.
+
+## Comportamento padrão
+
+Na revisão, a intervenção é conservadora e a entrega contém somente o texto final. Um texto já adequado pode permanecer intacto. Diagnóstico, antes/depois e justificativas aparecem quando solicitados.
+
+Afirmações e atribuições do original são preservadas mesmo quando a fonte não foi enviada. Uma revisão de estilo não confirma, remove ou corrige silenciosamente dados. A checagem factual depende do pedido; uma pendência indispensável pode ser registrada separadamente, respeitando o formato de saída.
+
+Amostras do autor orientam escolhas recorrentes de voz. Uma gíria isolada ou uma única frase não se torna regra. Os 26 padrões estão em um catálogo separado, consultado conforme a tarefa.
 
 ## Exemplos de uso
 
@@ -55,18 +63,26 @@ Ao pedir criação factual, forneça os dados disponíveis. Ao pedir ficção, i
 
 | Arquivo | Conteúdo |
 |---|---|
-| [SKILL.md](SKILL.md) | Instruções, modos de uso e 26 padrões de revisão. |
+| [SKILL.md](SKILL.md) | Núcleo de decisões, fidelidade, voz e entrega. |
+| [Catálogo de revisão](references/padroes-de-revisao.md) | Os 26 padrões, com exemplos e limites de aplicação. |
 | [Fundamentação](references/fundamentacao.md) | Treze referências brasileiras de redação e linguagem, com aplicações e limites. |
 | [Literatura e estilo](references/literatura-e-estilo.md) | Dez referências complementares de literatura, gêneros e estudos do texto. |
 | [Repertório de escrita](references/repertorio-de-escrita.md) | Escolhas para criar textos ou variar a voz e a composição. |
-| [Casos de revisão](references/casos-de-revisao.md) | Exemplos, critérios e registros das verificações realizadas. |
+| [Casos históricos](references/casos-de-revisao.md) | Registros das versões 1.1.0 e 1.2.0. |
+| [Avaliação 1.3.0](tests/README.md) | Pedidos neutros, critérios, controle e saídas completas. |
 | [LICENSE](LICENSE) | Licença MIT e avisos de autoria. |
 
 ## Validação e limites
 
-A versão 1.2.0 passou na validação de estrutura da skill. Uma rodada com avaliador independente cobriu dezessete casos de criação, preservação e regressão, incluindo temas ausentes dos exemplos do repertório. Os resultados e as limitações estão nos casos de revisão.
+O [protocolo 1.3.0](tests/README.md) compara cinco execuções por condição em três pedidos neutros: sem a skill, com a 1.2.0 e com a 1.3.0. Oito pedidos adicionais verificam a integração. As saídas e os limites da avaliação ficam no diretório de testes.
 
-Foi uma execução por caso. Não houve pesquisa com leitores, medição de preferência estética ou estimativa de eficácia estatística. Algumas referências foram consultadas parcialmente; essa cobertura está registrada na fundamentação. Os testes com modelos não comprovam que uma versão seja literariamente superior.
+Para conferir a integridade do pacote, execute:
+
+```sh
+python3 tests/check_package.py
+```
+
+Essa verificação mecânica não julga a qualidade dos textos. Não houve pesquisa com leitores nem medição de preferência estética. Algumas referências têm acesso parcial, registrado na fundamentação. Os testes com modelos não comprovam superioridade literária.
 
 ## Contribuições
 
